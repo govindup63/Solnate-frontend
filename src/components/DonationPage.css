@@ -5,7 +5,6 @@ body {
     background-color: #f7f9fc;
 }
 
-/* Page Container */
 .donation-page {
     display: flex;
     align-items: center;
@@ -17,27 +16,24 @@ body {
     background-attachment: fixed;
 }
 
-/* Content Area */
 .donation-content {
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    background: rgba(255, 255, 255, 0.9);
     padding: 40px 60px;
     border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     width: 100%;
-    backdrop-filter: blur(10px); /* Blur effect for modern look */
+    backdrop-filter: blur(10px);
 }
 
-/* Header */
 h1 {
     margin-bottom: 20px;
-    font-size: 3rem; /* Larger heading for more impact */
+    font-size: 3rem;
     color: #333;
     font-weight: 700;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Paragraphs */
 p {
     margin-bottom: 30px;
     font-size: 1.2rem;
@@ -45,28 +41,49 @@ p {
     line-height: 1.6;
 }
 
-/* Search Bar */
-.search-bar {
+/* Search Bar Styles */
+.search-bar,
+.public-key-section {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #e0e0e0;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
 }
 
-.search-input {
+.search-input,
+.public-key-value {
     flex: 1;
-    padding: 12px;
     font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-right: 10px; /* Space between input field and button */
-    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+.search-bar:hover .search-input::before,
+.public-key-section:hover .public-key-value::before {
+    content: "Click to copy";
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Copy Button */
 .copy-button {
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    font-size: 0.9rem;
     color: #fff;
-    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient button background */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -74,40 +91,56 @@ p {
 }
 
 .copy-button:hover {
-    background: linear-gradient(90deg, #feb47b, #ff7e5f); /* Inverted gradient on hover */
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
     transform: translateY(-3px);
 }
 
 .copy-button:active {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Consistent gradient on click */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
     transform: translateY(1px);
 }
 
-/* Link Display */
-.link-container {
+/* Donation Form */
+.wallet-connect {
+    margin: 20px 0;
+}
+
+.donation-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
-.donation-link {
-    display: block;
-    width: 100%;
-    max-width: 100%;
+.amount-input {
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 6px;
-    background: #fff;
-    color: #333;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word; /* Ensures long URLs break and don't overflow */
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
 }
 
-.donation-link a {
-    color: #ff7e5f;
-    text-decoration: none;
+.donate-button {
+    padding: 15px 30px;
+    font-size: 1.25rem;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.donation-link a:hover {
-    text-decoration: underline;
+.donate-button:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    transform: translateY(-3px);
+}
+
+.donate-button:active {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    transform: translateY(1px);
 }
