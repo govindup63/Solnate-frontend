@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import { createDonationLink } from '../api'; // Import your API utility
 import './LandingPage.css';
 
@@ -7,6 +8,7 @@ const LandingPage = () => {
   const [email, setEmail] = useState(''); // State for email
   const [link, setLink] = useState(''); // State for storing the generated donation link
   const [isLoading, setIsLoading] = useState(false); // State for loading
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleCreateLinkClick = async () => {
     setIsLoading(true); // Set loading state to true
@@ -14,6 +16,9 @@ const LandingPage = () => {
       // Call the API function with both publicKey and email
       const response = await createDonationLink(publicKey, email);
       setLink(response.data.donationLink); // Assuming the backend responds with the donation link
+
+      // Redirect to the donation page
+      navigate(`/donate/${publicKey}`); // Use navigate instead of history.push
     } catch (error) {
       console.error('Error creating donation link:', error);
       alert('Failed to create donation link. Please try again.');
