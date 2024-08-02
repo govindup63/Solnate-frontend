@@ -6,16 +6,19 @@ const LandingPage = () => {
   const [publicKey, setPublicKey] = useState(''); // State for public key
   const [email, setEmail] = useState(''); // State for email
   const [link, setLink] = useState(''); // State for storing the generated donation link
+  const [isLoading, setIsLoading] = useState(false); // State for loading
 
   const handleCreateLinkClick = async () => {
+    setIsLoading(true); // Set loading state to true
     try {
       // Call the API function with both publicKey and email
       const response = await createDonationLink(publicKey, email);
       setLink(response.data.donationLink); // Assuming the backend responds with the donation link
-      alert('Donation link created successfully!');
     } catch (error) {
       console.error('Error creating donation link:', error);
       alert('Failed to create donation link. Please try again.');
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -41,8 +44,12 @@ const LandingPage = () => {
           className="email-input"
         />
 
-        <button onClick={handleCreateLinkClick} className="create-link-button">
-          Create Donation Link
+        <button
+          onClick={handleCreateLinkClick}
+          disabled={isLoading}
+          className="create-link-button"
+        >
+          {isLoading ? 'Generating Link...' : 'Create Donation Link'}
         </button>
 
         {link && (
