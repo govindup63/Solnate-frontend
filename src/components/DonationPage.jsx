@@ -19,7 +19,7 @@ const DonationPage = () => {
 
   useEffect(() => {
     setOrganizationData({ name: "Example Organization" });
-    setDonationLink(`${baseUrl}/donate/${publicKey}`);
+    setDonationLink(`https://solnate-frontend.vercel.app/donate/${publicKey}`);
   }, [publicKey, baseUrl]);
 
   const handleCopyClick = (text) => {
