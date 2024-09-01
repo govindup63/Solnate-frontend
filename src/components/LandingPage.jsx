@@ -10,7 +10,7 @@ const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(false); // State for loading
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  const handleCreateLinkClick = async () => {
+  const handleCreateLinkClick =  () => {
     setIsLoading(true); // Set loading state to true
     // try {
     //   // Call the API function with both publicKey and email
