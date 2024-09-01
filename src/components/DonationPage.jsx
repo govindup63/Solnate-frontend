@@ -14,10 +14,13 @@ const DonationPage = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [amount, setAmount] = useState(0.01); // Example: Set default amount to 0.01 SOL
 
+  // Determine the base URL based on the environment
+  const baseUrl = import.meta.env.REACT_APP_BASE_URL || "http://localhost:5173";
+
   useEffect(() => {
     setOrganizationData({ name: "Example Organization" });
-    setDonationLink(`http://localhost:5173/donate/${publicKey}`);
-  }, [publicKey]);
+    setDonationLink(`${baseUrl}/donate/${publicKey}`);
+  }, [publicKey, baseUrl]);
 
   const handleCopyClick = (text) => {
     navigator.clipboard
