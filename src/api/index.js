@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Base URL for the backend API
-const BASE_URL = 'http://172.31.45.171:3001/api/organization';
+// Use the public IP of your EC2 instance
+const BASE_URL = 'http://13.51.198.4:3001/api/organization';
 
 // Create an instance of axios with default settings
 const api = axios.create({
