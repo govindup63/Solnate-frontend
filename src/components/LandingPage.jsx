@@ -33,7 +33,7 @@ const LandingPage = () => {
     <div className="landing-page">
       <div className="content">
         <h1>Welcome to SolNate!</h1>
-        <p>SolNate is a decentralized platform that allows organizations to easily receive cryptocurrency donations. Generate unique donation links and QR codes to facilitate direct contributions to your cause.</p>
+        <p>SolNate is a decentralized platform that allows organizations to easily receive cryptocurrency donations. Generate unique donation to facilitate direct contributions to your cause.</p>
         
         <input
           type="text"
